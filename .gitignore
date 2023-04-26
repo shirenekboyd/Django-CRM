@@ -1,0 +1,15 @@
+# Ignore compiled Python files
+*.pyc
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python virtual environment
+env/
+virt/
