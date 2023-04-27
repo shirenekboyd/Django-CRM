@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms 
-from .models import Record
+# from .models import Record
 
 # fields = ['first_name', 'last_name', 'email', 'address_line_1', 'address_line_2', 'city', 'state', 'zipcode', 'profile_picture']
 
@@ -9,16 +9,13 @@ class SignUpForm(UserCreationForm):
     first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
     last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))
-    address_line_1 = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Address Line 1'}))
-    address_line_2 = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Address Line 2'}))
-    city = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'City'}))
-    state = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'State'}))
-    zipcode = forms.IntegerField(label="", min_value=0, max_value=999999999, widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Zipcode'}))
-    profile_picture = forms.ImageField(label="Profile Picture", widget=forms.ClearableFileInput(attrs={'class': 'form-control'}))
+    
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'address_line_1', 'address_line_2', 'city', 'state', 'zipcode', 'profile_picture', 'password1', 'password2')
+        # fields = ('username', 'first_name', 'last_name', 'email', 'address_line_1', 'address_line_2', 'city', 'state', 'zipcode', 'profile_picture', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'password1', 'password2')
+
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
