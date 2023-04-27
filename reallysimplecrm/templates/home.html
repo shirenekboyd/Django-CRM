@@ -3,30 +3,50 @@
 {% block content %}
 
 {% comment %} Bootstrap's code for centering all content {% endcomment %}
-<div class="col-md-6 offset-md-3">
+
 
     {% comment %} checking user authentication {% endcomment %}
     {% if user.is_authenticated %}
     
     <h1>Contacts...</h1>
-    {% if contacts %}
-      {% for contact in contacts%}
-          {{ contact.first_name }}
-          {{ contact.last_name }}
-          {{ contact.email }}
-          {{ contact.address_line_1 }}
-          {{ contact.address_line_2 }}
-          {{ contact.city }}
-          {{ contact.state }}
-          {{ contact.zipcode }}
-          {{ contact.profile_picture }}
-          {{ contact.created_at }}
-          {{ contact.id }}
-          <br /><br />
 
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address 1</th>
+          <th scope="col">Address 2</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col">Zipcode</th>
+          <th scope="col">Profile Picture</th>
+          <th scope="col">Created At</th>
+          <th scope="col">ID</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% if contacts %}
+        {% for contact in contacts%}
+      <tr>
+          <td>{{ contact.first_name }}
+              {{ contact.last_name }}</td>
+            <td>{{ contact.email }}</td>
+              <td>{{ contact.address_line_1 }}</td>
+                <td>{{ contact.address_line_2 }}</td>
+                  <td>{{ contact.city }}</td>
+                    <td>{{ contact.state }}</td>
+                      <td>{{ contact.zipcode }}</td>
+                        <td>{{ contact.profile_picture }}</td>
+                          <td>{{ contact.created_at }}</td>
+                            <td>{{ contact.id }}</td>
+        </tr>
       {% endfor %}
     {% endif %}
 
+      </tbody>
+    </table>
+    
     {% else %}
 
 <h1>Login</h1>
@@ -44,7 +64,7 @@
     <br />
     <button type="submit" class="btn btn-secondary">Login</button>
 </form>
-</div>
+
 
 {% endif %}
 
