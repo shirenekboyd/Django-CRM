@@ -39,7 +39,7 @@
                       <td>{{ contact.zipcode }}</td>
                         <td>{{ contact.profile_picture }}</td>
                           <td>{{ contact.created_at }}</td>
-                            <td>{{ contact.id }}</td>
+                            <td><a href="{% url 'contact_detail' contact.id %}">{{ contact.id }}</td>
         </tr>
       {% endfor %}
     {% endif %}
@@ -48,7 +48,7 @@
     </table>
     
     {% else %}
-
+    <div class="col-md-6 offset-med-3">
 <h1>Login</h1>
 <br />
 <form method="POST" action="{% url 'home' %}">

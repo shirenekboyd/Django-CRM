@@ -67,4 +67,15 @@ def register_user(request):
     
     return render(request, 'register.html', {'form':form})  
         
-          
+
+# @login_required
+def contact_detail(request, pk):
+    if request.user.is_authenticated:
+        # Look Up a single Contact from Contacts
+        customer_contact = Contact.objects.get(id=pk)
+        return render(request, 'contact_detail.html', {'customer_contact':customer_contact})
+    # if user is not authenticated
+    else:
+        messages.success(request, "You Must Be Logged In To View That Page...")
+        return redirect('home')
+        

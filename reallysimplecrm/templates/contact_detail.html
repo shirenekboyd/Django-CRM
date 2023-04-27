@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>Customer Contact</h1>
+{% comment %} {{ customer_contact }} {% endcomment %}
+{{ customer_contact.first_name }} {{ customer_contact.last_name }}
+<br />
+{{ customer_contact.email }}
+<br />
+
+{{ customer_contact.address_line_1 }}
+<br />
+
+{{ customer_contact.address_line_2 }}
+<br />
+
+{{ customer_contact.city }}
+<br />
+
+{{ customer_contact.state }}
+<br />
+
+{{ customer_contact.zipcode }}
+<br />
+
+{{ customer_contact.profile_picture }}
+
+
+{{ customer_contact.created_at }}
+<br />
+
+{{ customer_contact.id }}
+
+
+{% endblock %}
