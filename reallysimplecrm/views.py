@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import Contact 
 
 # Create your views here. (Backend so to speak)
 
@@ -12,6 +13,10 @@ from .forms import SignUpForm
 
 # Home page
 def home(request):
+    # grab everything in Contact table and assign it to this variable
+    contacts = Contact.objects.all()
+
+
     # Check to see if user is logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -29,7 +34,7 @@ def home(request):
 
 
     else:
-        return render(request, 'home.html', {})
+        return render(request, 'home.html', {'contacts':contacts})
 
 # Login/Logout User
 # def login_user(request):
