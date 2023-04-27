@@ -3,34 +3,38 @@
 
 
 <h1>Customer Contact</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h2>{{ customer_contact.first_name }} {{ customer_contact.last_name }}</h2>
+      
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+        <strong>Email: </strong>{{ customer_contact.email }}</p>
+        <p class="card-text">
+        <strong>Address 1: </strong>{{ customer_contact.address_line_1 }}</p>
+        <p class="card-text">
+        <strong>Address 2: </strong>{{ customer_contact.address_line_2 }}</p>
+        <p class="card-text">
+        <strong>City: </strong>{{ customer_contact.city }}</p>
+        <p class="card-text">
+        <strong>State: </strong>{{ customer_contact.state }}</p>
+        <p class="card-text">
+        <strong>Zipcode: </strong>{{ customer_contact.zipcode }}</p>
+        <p class="card-text">
+        <strong>Profile Picture: </strong>{{ customer_contact.profile_picture }}</p>
+        <p class="card-text">
+        <strong>Created At: </strong>{{ customer_contact.created_at }}</p>
+        <p class="card-text">
+        <strong>Contact ID: </strong>{{ customer_contact.id }}</p>
+        </p>
+    </div>
+  </div>
 {% comment %} {{ customer_contact }} {% endcomment %}
-{{ customer_contact.first_name }} {{ customer_contact.last_name }}
-<br />
-{{ customer_contact.email }}
-<br />
 
-{{ customer_contact.address_line_1 }}
-<br />
-
-{{ customer_contact.address_line_2 }}
-<br />
-
-{{ customer_contact.city }}
-<br />
-
-{{ customer_contact.state }}
-<br />
-
-{{ customer_contact.zipcode }}
-<br />
-
-{{ customer_contact.profile_picture }}
-
-
-{{ customer_contact.created_at }}
-<br />
-
-{{ customer_contact.id }}
-
+{% comment %} TEST {% endcomment %}
+<br /><br />
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
 
 {% endblock %}
