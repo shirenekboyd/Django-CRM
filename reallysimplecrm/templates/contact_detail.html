@@ -23,7 +23,21 @@
         <p class="card-text">
         <strong>Zipcode: </strong>{{ customer_contact.zipcode }}</p>
         <p class="card-text">
+            <strong>Profile Picture: </strong>{{ customer_contact.profile_picture }}</p>
+            <p class="card-text">
+                <strong>Profile Picture: </strong>{{ customer_contact.profile_picture }}</p>
+                {% if customer_contact.profile_picture and customer_contact.profile_picture.url %}
+                    <img src="{{ customer_contact.profile_picture.url }}" alt="{{ customer_contact.first_name }} {{ customer_contact.last_name }}" class="img-thumbnail" style="max-width: 200px;">
+                {% else %}
+                    <p>No profile picture available.</p>
+                {% endif %}
+        {% comment %} <p class="card-text">
         <strong>Profile Picture: </strong>{{ customer_contact.profile_picture }}</p>
+        {% if customer_contact.profile_picture %}
+            <img src="{{ customer_contact.profile_picture.url }}" alt="{{ customer_contact.first_name }} {{ customer_contact.last_name }}" class="img-thumbnail" style="max-width: 200px;">
+        {% else %}
+            <p>No profile picture available.</p>
+        {% endif %} {% endcomment %}
         <p class="card-text">
         <strong>Created At: </strong>{{ customer_contact.created_at }}</p>
         <p class="card-text">

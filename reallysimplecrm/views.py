@@ -92,20 +92,38 @@ def contact_delete(request, pk):
 
 
 # @login_required
+# def contact_create(request):
+#         form = NewContactForm(request.POST or None)
+#         if request.user.is_authenticated:
+#             if request.method == "POST":
+#                 if form.is_valid():
+#                     new_contact = form.save(commit=False)
+#                     new_contact.user = request.user
+#                     new_contact.save()
+#                     messages.success(request, "New Contact Added...")
+#                 return redirect('home')
+#             return render(request, 'contact_create.html', {'form':form})
+#         else:
+#             messages.success(request, "You Must Be Logged In To Create A New Contact...")
+#             return redirect('home')
+
 def contact_create(request):
-        form = NewContactForm(request.POST or None)
-        if request.user.is_authenticated:
-            if request.method == "POST":
-                if form.is_valid():
-                    new_contact = form.save(commit=False)
-                    new_contact.user = request.user
-                    new_contact.save()
-                    messages.success(request, "New Contact Added...")
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            form = NewContactForm(request.POST, request.FILES)
+            if form.is_valid():
+                new_contact = form.save(commit=False)
+                new_contact.user = request.user
+                new_contact.save()
+                messages.success(request, "New Contact Added...")
                 return redirect('home')
-            return render(request, 'contact_create.html', {'form':form})
         else:
-            messages.success(request, "You Must Be Logged In To Create A New Contact...")
-            return redirect('home')
+            form = NewContactForm()
+        return render(request, 'contact_create.html', {'form': form})
+    else:
+        messages.success(request, "You Must Be Logged In To Create A New Contact...")
+        return redirect('home')
+
 
 
 

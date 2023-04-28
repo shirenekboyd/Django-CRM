@@ -5,7 +5,7 @@
 <h1>Create Contact</h1>
 <br />
 
-<form method="POST" action="{% url 'contact_create' %}">
+<form method="POST" action="{% url 'contact_create' %}" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{ form.as_p }}
