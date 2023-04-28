@@ -36,5 +36,7 @@
 {% comment %} TEST {% endcomment %}
 <br /><br />
 <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+<a href="{% url 'contact_delete' customer_contact.id %}" class="btn btn-danger">Delete</a>
+
 
 {% endblock %}

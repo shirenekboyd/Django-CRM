@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django import forms 
+from django import forms
+from .models import Contact 
 # from .models import Record
 
 # fields = ['first_name', 'last_name', 'email', 'address_line_1', 'address_line_2', 'city', 'state', 'zipcode', 'profile_picture']
@@ -37,3 +38,18 @@ class SignUpForm(UserCreationForm):
     
     
 
+# Create New Contact Form
+class NewContactForm(forms.ModelForm):
+    first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name", "class":"form-control"}), label="")
+    last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Last Name", "class":"form-control"}), label="")
+    email = forms.CharField(widget=forms.widgets.TextInput(attrs={"placeholder":"Email", "class":"form-control"}), label="")
+    address_line_1 = forms.CharField(widget=forms.widgets.TextInput(attrs={"placeholder":"Address 1", "class":"form-control"}), label="")
+    address_line_2 = forms.CharField(required=False, widget=forms.widgets.TextInput(attrs={"placeholder":"Address 2", "class":"form-control"}), label="")
+    city = forms.CharField(widget=forms.widgets.TextInput(attrs={"placeholder":"City", "class":"form-control"}), label="")
+    state = forms.CharField(widget=forms.widgets.TextInput(attrs={"placeholder":"State", "class":"form-control"}), label="")
+    zipcode = forms.CharField(widget=forms.widgets.TextInput(attrs={"placeholder":"Zipcode", "class":"form-control"}), label="")
+    profile_picture = forms.ImageField(required=False, label="Profile Picture")
+
+    class Meta:
+        model = Contact
+        exclude = ("user",)

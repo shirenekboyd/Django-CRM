@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-med-3">
+<h1>Create Contact</h1>
+<br />
+
+<form method="POST" action="{% url 'contact_create' %}">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+<br />
+<button type="submit" class="btn btn-secondary">New Contact</button>
+</form>
+</div>
+
+{% endblock %}
