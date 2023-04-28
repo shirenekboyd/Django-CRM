@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-med-3">
+<h1>Edit Contact</h1>
+<br />
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+<br />
+<button type="submit" class="btn btn-success">Edit Contact</button>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+</form>
+</div>
+
+{% endblock %}
