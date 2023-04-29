@@ -30,8 +30,8 @@
       {% if contacts %}
         {% for contact in contacts%}
       <tr>
-          <td>{{ contact.first_name }}
-              {{ contact.last_name }}</td>
+          <td><a href="{% url 'contact_detail' contact.id %}">{{ contact.first_name }}
+              {{ contact.last_name }}</a></td>
             <td>{{ contact.email }}</td>
               <td>{{ contact.address_line_1 }}</td>
                 <td>{{ contact.address_line_2 }}</td>
@@ -42,7 +42,7 @@
                         <td>{% load tz %}{{ contact.created_at }}</td>
                           {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
                             {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
-                            <td><a href="{% url 'contact_detail' contact.id %}">{{ contact.id }}</td>
+                            <td>{{ contact.id }}</td>
         </tr>
       {% endfor %}
     {% endif %}
