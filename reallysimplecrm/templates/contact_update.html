@@ -5,10 +5,16 @@
 <h1>Edit Contact</h1>
 <br />
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{ form.as_p }}
+
+    <!-- Profile picture field -->
+    {% comment %} <div class="form-group">
+        <label for="{{ form.profile_picture.id_for_label }}">Profile Picture:</label>
+        {{ form.profile_picture }}
+    </div> {% endcomment %}
 <br />
 <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
 <button type="submit" class="btn btn-success">Edit Contact</button>

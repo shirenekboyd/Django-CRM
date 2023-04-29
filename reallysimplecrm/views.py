@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, NewContactForm
 from .models import Contact
-from django.core.files import File
+# from django.core.files import File
 from django.conf import settings
 import os
 
@@ -132,26 +132,26 @@ def contact_create(request):
     
 
 # @login_required
-# def contact_update(request, pk):
-#     if request.user.is_authenticated:
-#         current_contact = Contact.objects.get(id=pk)
-#         if request.method == "POST":
-#             form = NewContactForm(request.POST, request.FILES, instance=current_contact)
-#             if form.is_valid():
-#                 updated_contact = form.save(commit=False)
-#                 if 'profile_picture-clear' in request.POST and request.POST['profile_picture-clear'] == 'on':
-#                     updated_contact.profile_picture = 'profile_pictures/default.png'
-#                 elif request.FILES.get('profile_picture'):
-#                     updated_contact.profile_picture = request.FILES['profile_picture']
-#                 updated_contact.save()
-#                 messages.success(request, "Contact Has Been Updated!")
-#                 return redirect('home')
-#         else:
-#             form = NewContactForm(instance=current_contact)
-#         return render(request, 'contact_update.html', {'form': form})
-#     else:
-#         messages.success(request, "You Must Be Logged In To Edit A Contact...")
-#         return redirect('home')
+def contact_update(request, pk):
+    if request.user.is_authenticated:
+        current_contact = Contact.objects.get(id=pk)
+        if request.method == "POST":
+            form = NewContactForm(request.POST, request.FILES, instance=current_contact)
+            if form.is_valid():
+                updated_contact = form.save(commit=False)
+                if 'profile_picture-clear' in request.POST and request.POST['profile_picture-clear'] == 'on':
+                    updated_contact.profile_picture = 'profile_pictures/default.png'
+                elif request.FILES.get('profile_picture'):
+                    updated_contact.profile_picture = request.FILES['profile_picture']
+                updated_contact.save()
+                messages.success(request, "Contact Has Been Updated!")
+                return redirect('home')
+        else:
+            form = NewContactForm(instance=current_contact)
+        return render(request, 'contact_update.html', {'form': form})
+    else:
+        messages.success(request, "You Must Be Logged In To Edit A Contact...")
+        return redirect('home')
 
 
 # def contact_update(request, pk):
@@ -183,24 +183,53 @@ def contact_create(request):
 #         messages.success(request, "You Must Be Logged In To Edit A Contact...")
 #         return redirect('home')
 
-def contact_update(request, pk):
-    if request.user.is_authenticated:
-        current_contact = Contact.objects.get(id=pk)
-        if request.method == "POST":
-            form = NewContactForm(request.POST, request.FILES, instance=current_contact)
-            if form.is_valid():
-                updated_contact = form.save(commit=False)
-                if not form.cleaned_data.get('profile_picture') and not current_contact.profile_picture:
-                    updated_contact.profile_picture = 'profile_pictures/default.png'
-                updated_contact.save()
-                messages.success(request, "Contact Has Been Updated!")
-                return redirect('contact_detail', pk=updated_contact.id)
-        else:
-            form = NewContactForm(instance=current_contact)
-        return render(request, 'contact_update.html', {'form': form})
-    else:
-        messages.success(request, "You Must Be Logged In To Edit A Contact...")
-        return redirect('home')
+# def contact_update(request, pk):
+#     if request.user.is_authenticated:
+#         current_contact = Contact.objects.get(id=pk)
+#         if request.method == "POST":
+#             form = NewContactForm(request.POST, request.FILES, instance=current_contact)
+#             if form.is_valid():
+#                 updated_contact = form.save(commit=False)
+#                 if not form.cleaned_data.get('profile_picture') and not current_contact.profile_picture:
+#                     updated_contact.profile_picture = 'profile_pictures/default.png'
+#                 updated_contact.save()
+#                 messages.success(request, "Contact Has Been Updated!")
+#                 return redirect('contact_detail', pk=updated_contact.id)
+#         else:
+#             form = NewContactForm(instance=current_contact)
+#         return render(request, 'contact_update.html', {'form': form})
+#     else:
+#         messages.success(request, "You Must Be Logged In To Edit A Contact...")
+#         return redirect('home')
+
+# def contact_update(request, pk):
+#     if request.user.is_authenticated:
+#         current_contact = get_object_or_404(Contact, id=pk)
+
+#         if request.method == "POST":
+#             form = NewContactForm(request.POST, request.FILES, instance=current_contact)
+#             if form.is_valid():
+#                 updated_contact = form.save(commit=False)
+
+#                 # Check if a new profile picture is provided
+#                 if 'profile_picture' in request.FILES:
+#                     # Delete the old profile picture if it exists
+#                     if current_contact.profile_picture:
+#                         current_contact.profile_picture.delete()
+#                     updated_contact.profile_picture = request.FILES['profile_picture']
+#                 elif not current_contact.profile_picture:
+#                     updated_contact.profile_picture = 'profile_pictures/default.png'
+
+#                 updated_contact.save()
+#                 messages.success(request, "Contact has been updated!")
+#                 return redirect('contact_detail', pk=updated_contact.id)
+#         else:
+#             form = NewContactForm(instance=current_contact)
+
+#         return render(request, 'contact_update.html', {'form': form})
+#     else:
+#         messages.success(request, "You must be logged in to edit a contact...")
+#         return redirect('home')
 
 
 

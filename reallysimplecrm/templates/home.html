@@ -22,7 +22,7 @@
           <th scope="col">Zipcode</th>
           <th scope="col">Profile Picture</th>
           <th scope="col">Created At</th>
-          {% comment %} <th scope="col">Updated At</th> {% endcomment %}
+          <th scope="col">Updated At</th>
           <th scope="col">ID</th>
         </tr>
       </thead>
@@ -40,7 +40,7 @@
                       <td>{{ contact.zipcode }}</td>
                         <td>{{ contact.profile_picture }}</td>
                         <td>{% load tz %}{{ contact.created_at }}</td>
-                          {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
+                          <td>{{ contact.updated_at }}</td>
                             {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
                             <td>{{ contact.id }}</td>
         </tr>
