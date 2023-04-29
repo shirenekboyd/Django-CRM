@@ -9,7 +9,7 @@
     {% if user.is_authenticated %}
     
     <h1>Contacts...</h1>
-
+    <br />
     <table class="table table-striped table-hover table-bordered">
       <thead class="table-dark">
         <tr>
@@ -40,8 +40,9 @@
                       <td>{{ contact.zipcode }}</td>
                         <td>{{ contact.profile_picture }}</td>
                         <td>{% load tz %}{{ contact.created_at }}</td>
-                          <td>{{ contact.updated_at }}</td>
+                          {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
                             {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
+                            <td>{% load tz %}{{ contact.updated_at|timezone:"America/Chicago" }}</td>
                             <td>{{ contact.id }}</td>
         </tr>
       {% endfor %}

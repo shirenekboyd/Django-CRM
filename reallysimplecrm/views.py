@@ -3,9 +3,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, NewContactForm
 from .models import Contact
+from django.utils import timezone
 # from django.core.files import File
-from django.conf import settings
-import os
+# from django.conf import settings
+# import os
 
 
 # Create your views here. (Backend so to speak)
@@ -139,6 +140,7 @@ def contact_update(request, pk):
             form = NewContactForm(request.POST, request.FILES, instance=current_contact)
             if form.is_valid():
                 updated_contact = form.save(commit=False)
+                updated_contact.updated_at = timezone.now()  # Set the updated_at field with the current time
                 if 'profile_picture-clear' in request.POST and request.POST['profile_picture-clear'] == 'on':
                     updated_contact.profile_picture = 'profile_pictures/default.png'
                 elif request.FILES.get('profile_picture'):

@@ -31,14 +31,15 @@
             {% else %}
                 <p>No profile picture available.</p>
             {% endif %}
-             
+            <p class="card-text">
+                <strong>Created At: </strong>{% load tz %}{{ customer_contact.created_at|timezone:"America/Chicago" }}</p>
             {% comment %} {% if customer_contact.profile_picture and customer_contact.profile_picture.url %}
                 <img src="{{ customer_contact.profile_picture.url }}" alt="{{ customer_contact.first_name }} {{ customer_contact.last_name }}" class="img-thumbnail" style="max-width: 200px;">
             {% else %}
                 <img src="/media/profile_pictures/default.png" alt="Default profile picture" class="img-thumbnail" style="max-width: 200px;">
             {% endif %} {% endcomment %}
-        <p class="card-text">
-        <strong>Created At: </strong>{{ customer_contact.created_at }}</p>
+        {% comment %} <p class="card-text"> {% endcomment %}
+        {% comment %} <strong>Created At: </strong>{{ customer_contact.created_at }}</p> {% endcomment %}
         <p class="card-text">
         <strong>Contact ID: </strong>{{ customer_contact.id }}</p>
         </p>

@@ -6,6 +6,8 @@
 <br />
 
 <form method="POST" enctype="multipart/form-data">
+{% comment %} <form method="POST"> {% endcomment %}
+
     {% csrf_token %}
 
     {{ form.as_p }}
