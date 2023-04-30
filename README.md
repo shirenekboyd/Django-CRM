@@ -1,5 +1,5 @@
-# My Application
-My Application is a web-based CRM (Customer Relationship Management) system built using Django. It is designed to help businesses manage their customer contacts effectively and streamline their communication and sales processes. With My Application, you can easily store and organize customer information, track interactions, and stay connected with your clients.
+# ReallySimpleCRM
+This application is a web-based CRM (Customer Relationship Management) system built using Django. It is designed to help businesses manage their customer contacts effectively and streamline their communication and sales processes. With the application, you can easily store and organize customer information, track interactions, and stay connected with your clients.
 
 ![My application canva template views](img/canva-template.png)
 
@@ -13,7 +13,7 @@ My Application is a web-based CRM (Customer Relationship Management) system buil
 - User-friendly interface: Utilizes a clean and intuitive interface for easy navigation.
 
 ## Getting Started
-To run MyApplication locally on your machine, follow these steps:
+To run ReallySimpleCRM locally on your machine, follow these steps:
 
 ### Prerequisites
 Python 3.9 or higher   
@@ -24,7 +24,7 @@ Django 3.2 or higher
 `git clone https://github.com/your-username/myapplication.git`
 
 2. Navigate to the project directory:  
-`cd myapplication
+`cd reallysimplecrm
 `
 
 3. Create a virtual environment:  
@@ -54,7 +54,7 @@ On macOS/Linux:
 `DATABASE_URL=your_database_url_here`  
 Modify the values according to your specific configuration.  
 
-3. Configure the database settings in `myapplication/settings.py` to match your local environment. 
+3. Configure the database settings in `dcrm/settings.py` to match your local environment. 
 
 ### Database Setup
 1. Apply database migrations:  
