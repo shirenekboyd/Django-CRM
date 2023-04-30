@@ -21,7 +21,7 @@ Django 3.2 or higher
 
 ### Installation  
 1. Clone the repository:  
-`git clone https://github.com/your-username/myapplication.git`
+`git clone https://github.com/your-username/reallysimplecrm.git`
 
 2. Navigate to the project directory:  
 `cd reallysimplecrm
