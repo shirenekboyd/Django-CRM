@@ -1,6 +1,8 @@
 # My Application
 My Application is a web-based CRM (Customer Relationship Management) system built using Django. It is designed to help businesses manage their customer contacts effectively and streamline their communication and sales processes. With My Application, you can easily store and organize customer information, track interactions, and stay connected with your clients.
 
+![My application canva template views](img/canva-template.png)
+
 ## Features
 - User authentication: Users can register, log in, and manage their accounts.
 
