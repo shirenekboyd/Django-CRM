@@ -80,6 +80,10 @@ Log in using the superuser account created earlier.
 ## Usage
 Once you have set up the ReallySimpleCRM application on your local machine, you can perform various actions to manage your contacts. Here are the key actions and instructions on how to perform them:  
 
+
+https://user-images.githubusercontent.com/89878197/235397936-39903aff-2d6b-44f0-b52d-8a10cccf8780.mp4
+
+
 ### Creating a New Contact
 To create a new contact, follow these steps:
 
