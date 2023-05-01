@@ -2,9 +2,6 @@
 
 {% block content %}
 
-{% comment %} Bootstrap's code for centering all content {% endcomment %}
-
-
     {% comment %} checking user authentication {% endcomment %}
     {% if user.is_authenticated %}
     
@@ -39,11 +36,9 @@
                     <td>{{ contact.state }}</td>
                       <td>{{ contact.zipcode }}</td>
                         <td>{{ contact.profile_picture }}</td>
-                        <td>{% load tz %}{{ contact.created_at }}</td>
-                          {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
-                            {% comment %} <td>{{ contact.updated_at }}</td> {% endcomment %}
+                          <td>{% load tz %}{{ contact.created_at }}</td>
                             <td>{% load tz %}{{ contact.updated_at|timezone:"America/Chicago" }}</td>
-                            <td>{{ contact.id }}</td>
+                              <td>{{ contact.id }}</td>
         </tr>
       {% endfor %}
     {% endif %}
@@ -68,8 +63,6 @@
     <br />
     <button type="submit" class="btn btn-secondary">Login</button>
 </form>
-
-
 {% endif %}
 
 {% endblock %}

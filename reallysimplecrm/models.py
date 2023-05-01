@@ -5,7 +5,7 @@ from django.utils import timezone
 
 # Create your models here.
 
-# Django code/Python that creates a class that will then abstract away and create that code for us on the backend which will create the SQLite3 code behind the scenes
+# Django & Python code that creates a class that will then abstract away and create that code for us on the backend which will create the SQLite3 code behind the scenes
 
 class Contact(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)

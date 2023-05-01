@@ -2,9 +2,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from .models import Contact 
-# from .models import Record
-
-# fields = ['first_name', 'last_name', 'email', 'address_line_1', 'address_line_2', 'city', 'state', 'zipcode', 'profile_picture']
 
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
@@ -14,7 +11,6 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        # fields = ('username', 'first_name', 'last_name', 'email', 'address_line_1', 'address_line_2', 'city', 'state', 'zipcode', 'profile_picture', 'password1', 'password2')
         fields = ('username', 'first_name', 'last_name', 'password1', 'password2')
 
 

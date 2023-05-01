@@ -13,3 +13,4 @@ venv.bak/
 # Python virtual environment
 env/
 virt/
+venv/

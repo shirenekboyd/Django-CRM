@@ -6,7 +6,6 @@
 <h1>Register</h1>
 <br />
 <form method="POST" action="">
-    {% comment %} cross-site request forgery token to prevent form hacking {% endcomment %}
     {% csrf_token %}
     {% if form.errors %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -24,8 +23,6 @@
     <button type="submit" class="btn btn-secondary">Register</button>
 
 </form>
-
-
 </div>
 
 {% endblock %}
